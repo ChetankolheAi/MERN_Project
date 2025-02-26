@@ -34,22 +34,24 @@ function Signup() {
       });
 
       const result = await response.json();
-      const { success, message } = result;
+    
+      
+      alert(result.message)
+      if (result.success == true) {
+          
+          alert("Navigating to Login")
+          setTimeout(() => navigate('/login'), 800);
+        
+      }
+      else if(result.success == false){
 
-      if (success) {
-        alert(message);
-        setTimeout(() => {
-          console.log('Navigating to login');
+        alert(result.message)
 
-          navigate('/login');
-        }, 1000);
-      } else {
-        alert(message);
       }
     } catch (error) {
       alert('An error occurred. Please try again later.');
     }
-  };
+  }
 
   return (
     <div className="signup-container">
