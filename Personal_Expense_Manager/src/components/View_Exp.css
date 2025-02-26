@@ -5,16 +5,30 @@
     justify-content: center; /* Centers horizontally */
     align-items: center; /* Centers vertically */
     height: 100vh; 
+    margin-top: 80px;
+   
+  
 }
 .expense-list-container {
    
     max-width: 30%;
-    background: white;
+    background: rgba(255, 255, 255, 0);
+    backdrop-filter: blur(10px);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     left: 50%;
     top: 50%;
+    
+}
+::-webkit-scrollbar {
+    display: none;
+}
+.expense-list-container:hover {
+
+
+    box-shadow: 0px 0px 30px rgb(8, 236, 0);
+    border: 1px solid white ;
 }
 .expense-list-container h2 {
     color: rgb(2, 187, 2);
@@ -24,6 +38,8 @@
 .expense-list {
     list-style-type: none;
     padding: 0;
+    max-height: 500px;
+    overflow-y: scroll;
 }
 
 .expense-list li {

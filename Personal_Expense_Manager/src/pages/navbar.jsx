@@ -13,7 +13,6 @@ function Navbar() {
       setIsAuthenticated(!!localStorage.getItem('token'));
     };
 
- 
     window.addEventListener('storage', updateAuthStatus);
     return () => {
       window.removeEventListener('storage', updateAuthStatus);
@@ -23,16 +22,12 @@ function Navbar() {
   const handleLogout = () => {
     const confirmLogout = window.confirm("Are you sure you want to log out?");
     if(confirmLogout){
-    localStorage.removeItem('token');
-    localStorage.removeItem('loggedInUser');
-
-    //Notify all components (Navbar) about logout
-    window.dispatchEvent(new Event('storage'));
-
-    alert('User Logged Out Successfully');
-    navigate('/login');
+      localStorage.removeItem('token');
+      localStorage.removeItem('loggedInUser');
+      window.dispatchEvent(new Event('storage'));
+      alert('User Logged Out Successfully');
+      navigate('/login');
     }
-
   };
 
   return (
@@ -42,30 +37,20 @@ function Navbar() {
           <h4>CashFlow</h4>
         </div>
         <div id="links">
-          <Link to="/home">Home</Link>
-          <Link to="/about">About</Link>
-          <Link to="/contact">Contact</Link>
+          <Link to="/home" className="nav-link">Home</Link>
+          <Link to="/about" className="nav-link">About</Link>
+          <Link to="/contact" className="nav-link">Contact</Link>
 
-          
-           
-          {/* {isAuthenticated ?  <Link to="/view-expense">View Expense</Link> : (
-             <Link to="/login">View Expense</Link>
-          )}
-          {isAuthenticated ?  <Link to="/add-expense">Add Expense</Link> : (
-             <Link to="/login">Add Expense</Link>
-          )}
-           */}
-          {isAuthenticated ? <></> : (
-            <Link to="/signup">Signup</Link>
-          )}
-          
           {isAuthenticated ? (
             <>
-              <h2 id='loggedinusername'>{loggedInUser}</h2>
-              <button onClick={handleLogout} id='button'>Logout</button>
+              <h2 id="loggedinusername">{loggedInUser}</h2>
+              <button onClick={handleLogout} id="button">Logout</button>
             </>
           ) : (
-            <Link to="/login">Login</Link>
+            <>
+              <Link to="/signup" className="nav-link">Signup</Link>
+              <Link to="/login" className="nav-link">Login</Link>
+            </>
           )}
         </div>
       </nav>

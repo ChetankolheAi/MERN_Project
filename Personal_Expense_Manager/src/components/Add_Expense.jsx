@@ -2,14 +2,16 @@ import React, { useState, useEffect } from 'react';
 import './Add_Expense.css'; // Import CSS
 
 function AddExpense() {
-    const [user, setUser] = useState({ Description: "", Amount: "" });
+     const userId = localStorage.getItem('userId')
+    const [user, setUser] = useState({ Description: "", Amount: "" ,UserId:userId });
     const [expenses, setExpenses] = useState([]);
     const [totalAmount, setTotalAmount] = useState(0);
-
+   
     useEffect(() => {
         fetchExpenses();
+      
     }, []);
-
+   
     const fetchExpenses = () => {
         fetch("http://localhost:3000/expenses")
             .then(response => response.json())
@@ -35,7 +37,7 @@ function AddExpense() {
         })
         .then(response => response.json())
         .then(() => {
-            setUser({ Description: "", Amount: "" });
+            setUser({ Description: "", Amount: "" ,UserId:localStorage.getItem("userId")});
             fetchExpenses(); // Refresh the expense list
         })
         .catch(error => console.error('Error adding expense:', error));

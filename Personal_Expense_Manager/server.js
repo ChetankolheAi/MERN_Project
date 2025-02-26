@@ -9,6 +9,7 @@ const PORT = 3000;
 app.use(express.json());
 app.use(cors());
 
+
 //Mongo DB connection Code 
 mongoose.connect('mongodb://localhost:27017/PersonalManager')
     .then(() => {
@@ -21,9 +22,10 @@ mongoose.connect('mongodb://localhost:27017/PersonalManager')
 const userSchema = new mongoose.Schema({
     Description: String,
     Amount: Number,
+    UserId:String
 });
 
-const User = mongoose.model('User', userSchema);
+const User = mongoose.model('Expenses', userSchema);
 // mongo
 
 
@@ -31,6 +33,7 @@ const User = mongoose.model('User', userSchema);
 
 app.post('/Add', async (req, res) => {
     try {
+       
         const newUser = new User(req.body);
         await newUser.save();
         res.status(201).json({ message: 'User registered successfully' });
@@ -39,16 +42,30 @@ app.post('/Add', async (req, res) => {
     }
 });
 
-app.get('/expenses', async (req, res) => {
+app.get('/expenses/:userid', async (req, res) => {
+
+    const { userid } = req.params;
+  
     try {
-        const expenses = await User.find();
+        const expenses = await User.find({ UserId:userid}); // Fetch expenses from DB
         res.json(expenses);
     } catch (error) {
         res.status(500).json({ message: 'Internal Server Error', error });
     }
 });
 
-
+app.delete('/expenses/:id', async (req, res) => {
+    const { id } = req.params;
+    try {
+        const deletedExpense = await User.findByIdAndDelete(id);
+        if (!deletedExpense) {
+            return res.status(404).json({ message: 'Expense not found' });
+        }
+        res.status(200).json({ message: 'Expense deleted successfully' });
+    } catch (error) {
+        res.status(500).json({ message: 'Internal Server Error', error });
+    }
+});
 app.use('/api', Login); // Use the imported route
 
 

@@ -75,6 +75,7 @@ router.post('/login', async (req, res) => {
             success: true,
             jwtToken:jwtToken,
             email: user.email,
+            _id:user._id,
             username: user.username
         });
     } catch (err) {
