@@ -40,6 +40,52 @@
   }
   
   #nav a:hover {
-    background-color: #a29999;
+    color: rgb(133, 255, 133) ;
+    text-decoration: underline;
   }
   
+  #button{
+
+    width: 100px;
+    height: 40px;
+    margin-left: 10px;
+    background-color: rgb(0, 198, 0);
+  }
+  #button:hover{
+    background-color: rgb(0, 204, 0); /* Darker green on hover */
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3); /* Darker shadow on hover */
+    transform: translateY(-3px); /* Slight lift effect */
+  }
+@keyframes bg {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 50% 100%;
+  }
+  100% {
+    background-position: 100% 0%;
+  }
+}
+
+#loggedinusername {
+  margin: 0px;
+  padding: 0.5rem 1rem;
+  color: rgb(1, 102, 1);
+  
+  background: linear-gradient(110deg, rgb(50, 205, 50), rgb(255, 255, 255), rgb(184, 224, 184), rgb(0, 255, 0));
+  background-size: 300% 300%;
+  border-radius: 10px;
+  
+  animation: bg 3s ease infinite;
+  transition: all 0.3s ease; 
+}
+
+#loggedinusername:hover {
+  margin: 0px;
+  padding: 0.5rem 1rem;
+  color: rgb(13, 186, 0);
+  border-radius: 10px;
+
+  animation: bg 3s ease infinite reverse;
+}

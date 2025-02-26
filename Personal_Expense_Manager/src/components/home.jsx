@@ -29,10 +29,10 @@ function Home() {
         <h2 className="animate-text">"Save money and money will save you."</h2>
 
         {isAuthenticated ? (
-          <>
-            <button type="button" onClick={() => navigate('/add-expense')}>Add Expense</button>
-            <button type="button" onClick={() => navigate('/view-expense')}>View Expense</button>
-          </>
+          <div className="butttons">
+            <button id='button1' type="button" onClick={() => navigate('/add-expense')}>Add Expense</button>
+            <button id='button1' type="button" onClick={() => navigate('/view-expense')}>View Expense</button>
+            </div>
         ) : (
           <h3>Please Login First To Add Expenses</h3>
         )}

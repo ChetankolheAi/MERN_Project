@@ -1,0 +1,52 @@
+/* about.css */
+.about-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+    max-width: 800px;
+    margin-top: 80px;
+    background-color: #f4f4f900;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-left: auto; /* Center horizontally */
+    margin-right: auto; /* Center horizontally */
+    backdrop-filter: blur(50px);
+  }
+  
+  h1 {
+    font-size: 3rem;
+    color: rgb(4, 204, 4); /* Green color */
+    margin-bottom: 20px;
+    text-align: center; /* Ensure the h1 is centered */
+  }
+  
+  p {
+    font-size: 1.1rem;
+    color: #ffffff;
+    margin: 10px 0;
+    line-height: 1.6;
+    text-align: center; /* Center the paragraph text */
+  }
+  
+  ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    text-align: left;
+    max-width: 600px; /* Add max-width to ensure it's not too wide */
+    margin-left: auto; /* Center the list */
+    margin-right: auto; /* Center the list */
+  }
+  
+  ul li {
+    font-size: 1.1rem;
+    color: #ffffff;
+    margin: 5px 0;
+  }
+  
+  strong {
+    color: rgb(13, 186, 0); /* Highlighted green for emphasis */
+  }
+  

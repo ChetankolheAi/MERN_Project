@@ -64,3 +64,13 @@
     font-weight: bold;
     font-size: 1.2em; /* Slightly bigger for emphasis */
 }
+
+
+#button1{
+    margin-left: 10px;
+}
+#button1:hover{
+    background-color: rgb(0, 204, 0); /* Darker green on hover */
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3); /* Darker shadow on hover */
+    transform: translateY(-3px); /* Slight lift effect */
+}

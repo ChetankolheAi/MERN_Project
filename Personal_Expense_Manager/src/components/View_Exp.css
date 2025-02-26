@@ -33,8 +33,9 @@
     border-radius: 4px;
     display: flex;
     justify-content: space-between;
+    color: black;
 }
-
+        
 .expense-list span{
     padding: 2px;
     background-color: red;
@@ -51,3 +52,9 @@
     background-color: rgb(138, 28, 28);
     border: 1px solid white;
 }
+
+
+  .expense-list li strong {
+    margin-left: 10px; /* Add some space between the description and the amount */
+  }
+  

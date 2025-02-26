@@ -1,52 +1,107 @@
-/* Ensure the body and html take full height */
-html, body {
-    height: 100%;
-    margin: 0;
-    display: flex;
-    flex-direction: column; /* Stack the content vertically */
-  }
-  
-  /* The main container for content */
-  .main-container {
-    flex-grow: 1; /* This ensures it grows to take the remaining space above the footer */
-  }
-  
-  /* Footer Styling */
+/* Footer.css */
+
+.footer {
+  background-color: #817474;
+  color: white;
+  margin-top: 70px;
+  position: relative;
+  width: 100%;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-around; /* Distributes space evenly */
+  flex-wrap: wrap;
+  max-width: 1200px; /* Limit the maximum width */
+  margin: auto; /* Centers the container */
+  padding: 0 20px;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 250px;
+  margin: 20px; /* Adds space around sections */
+  text-align: left; /* Align text to the left */
+}
+
+.footer-section h3 {
+  margin-bottom: 15px;
+  font-size: 1.5em;
+  border-bottom: 2px solid #ffffff; /* Light blue underline */
+  padding-bottom: 5px;
+}
+
+.footer-section p {
+  line-height: 1.6;
+  text-align: left; /* Align text to the left */
+}
+
+.footer-section .contact-info {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.footer-section .contact-info2 {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.footer-section .contact-info2 img {
+  height: 40px;
+  margin-right: 10px;
+  transform: translate(-8px, 0);
+}
+
+.footer-section img {
+  height: 30px; /* Set a consistent size for icons */
+  margin-right: 10px; /* Space between icon and text */
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin: 10px 0;
+}
+
+.footer-section a {
+  color: #ffefef;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+  color: #00bc2c; /* Darker blue on hover */
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding: 15px 0;
+  border-top: 1px solid #444;
+  font-size: 0.9em;
+}
+
+.footer-bottom p {
+  margin: 0;
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
   .footer-container {
-    background-color: #333; /* Dark background */
-    color: white;
-    padding: 20px;
-    text-align: center;
-    width: 100%;
-    position: relative;
-    bottom: 0;
+    flex-direction: column;
+    align-items: center; /* Center align items */
   }
-  
-  .footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
+
+  .footer-section {
+    text-align: center; /* Center text on smaller screens */
   }
-  
-  .footer-content p {
-    margin: 0;
-    font-size: 14px;
-  }
-  
-  .footer-links {
-    display: flex;
-    gap: 20px;
-  }
-  
-  .footer-links a {
-    color: white;
-    text-decoration: none;
-    font-size: 14px;
-  }
-  
-  .footer-links a:hover {
-    text-decoration: underline;
-  }
-  
+}
+
+.id2 {
+  height: 60px;
+}
