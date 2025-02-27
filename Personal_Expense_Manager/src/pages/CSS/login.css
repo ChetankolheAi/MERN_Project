@@ -81,4 +81,18 @@
   .signup-link a:hover {
     text-decoration: underline;
   }
-  
+#form button {
+    width: 100%;
+    padding: 12px;
+    background-color: #00d007;;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#form button:hover {
+    background-color: #0f820b;
+}
