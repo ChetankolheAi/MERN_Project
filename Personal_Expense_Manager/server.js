@@ -20,11 +20,13 @@ mongoose.connect('mongodb://localhost:27017/PersonalManager')
     });
 
 const userSchema = new mongoose.Schema({
-    Description: String,
-    Amount: Number,
-    UserId:String
+    Description: { type: String, required: true },
+    Amount: { type: Number, required: true },
+    UserId: { type: String, required: true },
+    Month: { type: String, required: true },  // Store the month as a string (e.g., "January")
+    Year: { type: String, required: true },   // Store the year as a string (e.g., "2025")
+    Date: { type: Date, default: Date.now }   // Store the date when the expense was added
 });
-
 const User = mongoose.model('Expenses', userSchema);
 // mongo
 

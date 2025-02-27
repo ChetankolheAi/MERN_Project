@@ -1,28 +1,24 @@
-/* Wrapper for side-by-side layout */
-
 .expense-wrapper {
-   
     backdrop-filter: blur(2px);
     display: flex;
-    justify-content: center; /* Centers horizontally */
-    align-items: center; /* Centers vertically */
-    height: 100vh; 
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
     padding: 20px;
-
-    
+    box-sizing: border-box;
 }
 
-/* Styling for Add Expense Form */
 .expense-form-container {
-   
-    width: 600px;
-  
+    width: 100%;
+    max-width: 600px;
     background: white;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
 }
-.expense-form-container h2{
+
+.expense-form-container h2 {
     text-align: center;
 }
 
@@ -31,38 +27,46 @@
     flex-direction: column;
     gap: 10px;
 }
-.expense-form-container input{
-    margin-top: 10px;
-}
-.expense-form-container button{
-    margin-top: 10px;
-}
-input {
+
+.expense-form-container input,
+.expense-form-container select {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 16px;
-    width: 95%;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-button {
-    background-color:#00cf07;
-    color: white;
+.expense-form-container button {
+    margin-top: 10px;
     padding: 10px;
+    background-color: #00cf07;
+    color: white;
     border: none;
     border-radius: 4px;
     font-size: 16px;
     cursor: pointer;
     transition: background 0.3s;
-    width: 30%;
-  
+    width: 100%;
+    box-sizing: border-box;
 }
 
-button:hover {
+.expense-form-container button:hover {
     background-color: #4CAF48;
 }
 
-/* Styling for Expense List */
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.buttons button {
+    width: 48%;
+}
+
 .expense-list-container {
     flex: 1;
     max-width: 50%;
@@ -70,6 +74,7 @@ button:hover {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
 }
 
 .expense-list {
@@ -85,7 +90,22 @@ button:hover {
     display: flex;
     justify-content: space-between;
 }
-#button2{
-    justify-content: right;
-    margin-left: 210px;
+
+#button2 {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+@media (max-width: 768px) {
+    .expense-form-container {
+        width: 90%;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+
+    .buttons button {
+        width: 100%;
+    }
 }

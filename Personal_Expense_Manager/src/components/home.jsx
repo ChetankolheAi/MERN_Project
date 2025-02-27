@@ -44,8 +44,8 @@ function Home() {
 
         {isAuthenticated ? (
           <div className="butttons">
-            <button id='button1' type="button" onClick={() => navigate('/add-expense')}>Add Expense</button>
-            <button id='button1' type="button" onClick={() => navigate('/view-expense')}>View Expense</button>
+            <button id='button12' type="button" onClick={() => navigate('/add-expense')}>Add Expense</button>
+            <button id='button12' type="button" onClick={() => navigate('/view-expense')}>View Expense</button>
             </div>
         ) : (
           <h3 style={{color:red}}>Please Login First To Add Expenses</h3>
