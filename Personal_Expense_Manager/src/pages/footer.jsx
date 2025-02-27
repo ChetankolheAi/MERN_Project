@@ -1,5 +1,5 @@
 import React from 'react';
-import './Footer.css'; // Link to your CSS file for styling
+import './CSS/Footer.css'; // Link to your CSS file for styling
 import { Link } from 'react-router-dom';
 // Import the images
 import emailIcon from './Footer_Images/email.png';
@@ -22,7 +22,7 @@ const Footer = () => {
           <ul>
           <li><Link to="/home">Home</Link></li>
           <li><Link to="/about">About</Link></li>
-          <li><Link to="/addmobile">Add</Link></li>
+          <li><Link to="/addmobile">Servies</Link></li>
           <li><Link to="/contact">Contact</Link></li>
         </ul>
         </div>
@@ -32,20 +32,8 @@ const Footer = () => {
             <img src={emailIcon} alt="Email Icon" />
             <p>Email: Chetankolhe@gmail.com</p>
           </div>
-          <div className="contact-info">
-            <img src={phoneIcon} alt="Phone Icon" />
-            <p>Phone: +91 9080233880</p>
-          </div>
-          <div className="contact-info2">
-            <img src={instaIcon} alt="Instagram Icon" />
-            <p>Instagram: '____chetan___10'</p>
-          </div>
-          <div className="contact-info">
-            <a href="https://www.linkedin.com/feed/">
-              <img src={linkedinIcon} alt="LinkedIn Icon" />
-            </a>
-            <p>LinkedIn: 'Chetan_Kolhe'</p>
-          </div>
+          
+           
         </div>
       </div>
       <div className="footer-bottom">

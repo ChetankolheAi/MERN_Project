@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom'; 
-import './home.css';
-
+import './CSS/home.css';
+import Services from '../pages/services';
 function Home() {
   const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem('token'));
   const navigate = useNavigate();
@@ -19,9 +19,7 @@ function Home() {
   }, []);
 
   
-  if(!isAuthenticated){
-    alert("Please Login First To Add Expenses")
-  }
+
   const [strongColor, setStrongColor] = useState("white"); 
   const [spanColor, setSpanColor] = useState("rgb(0, 243, 0)"); 
 
@@ -38,6 +36,7 @@ function Home() {
   return (
     <div className="container">
       <section className="home-container">
+        
       <h1 className="animate-text" style={{ color: strongColor }} onMouseOut={change1}>
           Track Your <span id='span' onMouseOver={change} style={{ color: spanColor }}>Finance</span>
         </h1>
@@ -49,10 +48,12 @@ function Home() {
             <button id='button1' type="button" onClick={() => navigate('/view-expense')}>View Expense</button>
             </div>
         ) : (
-          <h3>Please Login First To Add Expenses</h3>
+          <h3 style={{color:red}}>Please Login First To Add Expenses</h3>
         )}
       </section>
+
     </div>
+    
   );
 }
 

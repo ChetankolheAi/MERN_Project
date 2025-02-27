@@ -3,7 +3,8 @@
     align-items: center; /* Center the content */
     height: 100vh; /* Ensure it takes full height without causing overflow */
     z-index: 1; /* Keep the content in front */
-    overflow: hidden; /* Prevent overflow */
+    overflow: hidden;
+     /* Prevent overflow */
 }
 
 /* Styling for the home container */

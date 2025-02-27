@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import './Add_Expense.css'; // Import CSS
+import './CSS/Add_Expense.css'; // Import CSS
+import { useNavigate } from 'react-router-dom'; 
 
 function AddExpense() {
      const userId = localStorage.getItem('userId')
     const [user, setUser] = useState({ Description: "", Amount: "" ,UserId:userId });
     const [expenses, setExpenses] = useState([]);
     const [totalAmount, setTotalAmount] = useState(0);
+     const navigate = useNavigate();
    
     useEffect(() => {
         fetchExpenses();
@@ -63,8 +65,10 @@ function AddExpense() {
                         onChange={(e) => setUser({ ...user, Amount: e.target.value })} 
                         required
                     />
-                    <button type="submit">Add Expense</button>  
-                         
+                    <div className="buttons">
+                    <button type="submit" id='button1'>Add Expense</button>  
+                    <button id='button1' type="button" onClick={() => navigate('/view-expense')}>View Expense</button>
+                    </div>
                 </form>
             </div>
 

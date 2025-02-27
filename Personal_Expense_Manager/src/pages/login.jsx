@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import './login.css';
+import './CSS/login.css';
 
 function Login() {
   const [user, setUser] = useState({
@@ -27,7 +27,7 @@ function Login() {
     const result = await response.json();
     console.log(result.message)
 
-    const {success  , message ,jwtToken,username,_id, error}= result;
+    const {success  , message ,jwtToken,username,email,_id, error}= result;
     
 
     if(result.success == true){
@@ -38,6 +38,7 @@ function Login() {
         
         localStorage.setItem('token',jwtToken);
         localStorage.setItem("userId", _id);
+        localStorage.setItem("email", email);
         localStorage.setItem('loggedInUser',username);
         window.dispatchEvent(new Event('storage'));
         console.log("Token set in localStorage:", localStorage.getItem('token'));
@@ -82,7 +83,7 @@ function Login() {
           <label>Not signed up?</label>
           <Link to="/signup"> Sign Up</Link>
         </div>
-        <button type='submit' id='button'>Login</button>
+        <button type='submit' >Login</button>
       </form>
     </div>
   );
