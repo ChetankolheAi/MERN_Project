@@ -1,9 +1,12 @@
-
+*{
+    max-height: 800px;
+}
   .services-container {
     text-align: center;
     padding: 50px 20px;
     background-color: #f8f9fa00;
     margin-top: 80px;
+    
   }
   
   .services-container h1 {

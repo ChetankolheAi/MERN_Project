@@ -6,28 +6,9 @@ function AddExpense() {
      const userId = localStorage.getItem('userId')
     const [user, setUser] = useState({ Description: "", Amount: "" ,UserId:userId });
     const [expenses, setExpenses] = useState([]);
-    const [totalAmount, setTotalAmount] = useState(0);
      const navigate = useNavigate();
    
-    useEffect(() => {
-        fetchExpenses();
-      
-    }, []);
-   
-    const fetchExpenses = () => {
-        fetch("http://localhost:3000/expenses")
-            .then(response => response.json())
-            .then(data => {
-                setExpenses(data);
-                calculateTotal(data);
-            })
-            .catch(error => console.error('Error fetching data:', error));
-    };
 
-    const calculateTotal = (data) => {
-        const total = data.reduce((acc, expense) => acc + Number(expense.Amount), 0);
-        setTotalAmount(total);
-    };
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -40,7 +21,7 @@ function AddExpense() {
         .then(response => response.json())
         .then(() => {
             setUser({ Description: "", Amount: "" ,UserId:localStorage.getItem("userId")});
-            fetchExpenses(); // Refresh the expense list
+          
         })
         .catch(error => console.error('Error adding expense:', error));
     };
