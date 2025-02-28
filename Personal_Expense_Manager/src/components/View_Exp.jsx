@@ -76,7 +76,7 @@ function View_Exp() {
 
     const filterMonths = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     const currentYear = new Date().getFullYear();
-    const filterYears = [currentYear, currentYear - 1, currentYear - 2];  // Show current and past 2 years for example
+    const filterYears = [currentYear+2,currentYear+1,currentYear, currentYear - 1, currentYear - 2];  // Show current and past 2 years for example
 
     // Helper function to format the date
     const formatDate = (dateString) => {

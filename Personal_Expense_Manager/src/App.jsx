@@ -3,9 +3,6 @@ import Home from './components/home';
 import Add_Expense from './components/Add_Expense';
 import Signup from './pages/signup';
 import Login from './pages/login';
-import About from './pages/about';
-import Contact from './pages/contact';
-import Services from './pages/services';
 import Navbar from './pages/navbar';
 import Footer from './pages/footer';
 import View_Expense from './components/View_Exp';
@@ -29,20 +26,18 @@ function App() {
           <Routes>
 
             <Route path="/" element={<Navigate to="/login" />} />
-    
             <Route path="/add-expense" element={<Add_Expense />} />
             <Route path="/view-expense" element={<View_Expense />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/services" element={<Services />} />
+            <Route path="/signup" element={<Signup />} />  
             <Route path="/login" element={<Login />} />
             <Route path="/home" element={<PrivateRoute element={<Home />} />} />
           </Routes>
+          <Footer />
         </div>
-
-        <Footer />
+     
+        
       </div>
+      
     </Router>
   );
 }

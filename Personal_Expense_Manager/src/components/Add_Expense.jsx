@@ -1,40 +1,72 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './CSS/Add_Expense.css'; // Import CSS
-import { useNavigate } from 'react-router-dom'; 
+import { useNavigate } from 'react-router-dom';
 
 function AddExpense() {
     const userId = localStorage.getItem('userId');
+    const monthNames = [
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+    ];
+
+    const currentDate = new Date().toISOString().split("T")[0]; // Get today's date
+    const currentYear = new Date().getFullYear().toString(); // Get current year
+    const currentMonth = monthNames[new Date().getMonth()]; // Get month name
+
     const [user, setUser] = useState({
         Description: "",
         Amount: "",
         UserId: userId,
-        Month: "",
-        Year: "",
-        Date: new Date().toISOString().split("T")[0], // Set the default date to today
+        Month: currentMonth, // Store month name instead of number
+        Year: currentYear, 
+        Date: currentDate, // Default date is today
     });
-    const [expenses, setExpenses] = useState([]);
+
     const navigate = useNavigate();
 
-    const handleSubmit = (event) => {
+    // Function to handle date change and automatically update month & year
+    const handleDateChange = (e) => {
+        const selectedDate = e.target.value;
+        const selectedYear = new Date(selectedDate).getFullYear().toString();
+        const selectedMonth = monthNames[new Date(selectedDate).getMonth()]; // Convert to month name
+
+        setUser((prev) => ({
+            ...prev,
+            Date: selectedDate,
+            Month: selectedMonth,
+            Year: selectedYear,
+        }));
+    };
+
+    const handleSubmit = async (event) => {
         event.preventDefault();
 
-        fetch("http://localhost:3000/Add", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(user)
-        })
-        .then(response => response.json())
-        .then(() => {
-            setUser({ 
-                Description: "", 
-                Amount: "", 
-                UserId: localStorage.getItem("userId"), 
-                Month: "", 
-                Year: "", 
-                Date: new Date().toISOString().split("T")[0] // Reset to today's date
+        try {
+            const response = await fetch("http://localhost:3000/Add", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    ...user,
+                    Amount: parseFloat(user.Amount), // Ensure Amount is a number
+                }),
             });
-        })
-        .catch(error => console.error('Error adding expense:', error));
+
+            if (!response.ok) {
+                throw new Error('Failed to add expense');
+            }
+
+            setUser({
+                Description: "",
+                Amount: "",
+                UserId: localStorage.getItem("userId"),
+                Month: monthNames[new Date().getMonth()], // Reset to current month (as name)
+                Year: new Date().getFullYear().toString(),
+                Date: new Date().toISOString().split("T")[0],
+            });
+
+        } catch (error) {
+            console.error('Error adding expense:', error);
+        }
     };
 
     return (
@@ -58,45 +90,28 @@ function AddExpense() {
                         required
                     />
                     
-                    {/* Month and Year Select */}
-                    <select 
-                        value={user.Month} 
-                        onChange={(e) => setUser({ ...user, Month: e.target.value })} 
-                        required
-                    >
-                        <option value="">Select Month</option>
-                        <option value="January">January</option>
-                        <option value="February">February</option>
-                        <option value="March">March</option>
-                        <option value="April">April</option>
-                        <option value="May">May</option>
-                        <option value="June">June</option>
-                        <option value="July">July</option>
-                        <option value="August">August</option>
-                        <option value="September">September</option>
-                        <option value="October">October</option>
-                        <option value="November">November</option>
-                        <option value="December">December</option>
-                    </select>
-
-                    <select 
-                        value={user.Year} 
-                        onChange={(e) => setUser({ ...user, Year: e.target.value })} 
-                        required
-                    >
-                        <option value="">Select Year</option>
-                        <option value="2025">2025</option>
-                        <option value="2024">2024</option>
-                        <option value="2023">2023</option>
-                        {/* You can add more years here */}
-                    </select>
-
-                    {/* Today's Date */}
+                    {/* Date Picker - Updates Month & Year automatically */}
                     <input 
                         type="date" 
                         value={user.Date} 
-                        onChange={(e) => setUser({ ...user, Date: e.target.value })} 
+                        onChange={handleDateChange} 
                         required
+                    />
+
+                    {/* Month Display (Auto-updated as name) */}
+                    <input 
+                        type="text"
+                        value={user.Month}
+                        readOnly
+                        disabled
+                    />
+
+                    {/* Year Display (Auto-updated) */}
+                    <input 
+                        type="text"
+                        value={user.Year}
+                        readOnly
+                        disabled
                     />
 
                     <div className="buttons">

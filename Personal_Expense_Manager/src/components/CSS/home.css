@@ -1,20 +1,29 @@
 .container {
     display: flex;
-    align-items: center; /* Center the content */
-    height: 100vh; /* Ensure it takes full height without causing overflow */
-    z-index: 1; /* Keep the content in front */
+    align-items: left;
+    z-index: 1;
     overflow: hidden;
-     /* Prevent overflow */
+    flex-direction: column;
+    max-height: 10000px;
+    background: linear-gradient(60deg, #000000, #1e1e2f, #444466, #000000);
+    background-color: rgb(53, 2, 142);
 }
 
-/* Styling for the home container */
+.home {
+    height: 50vh;
+}
+
 .home-container {
     padding: 30px;
-    border-radius: 8px; /* Rounded corners */
-    margin-top: 40px; /* Reduced margin to prevent overflow */
+    border-radius: 8px;
     color: white;
     width: 90%;
+    padding: 200px 0 0 0;
     max-width: 600px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: left;
+    margin-left: 100px;
 }
 
 .home-container h1 {
@@ -34,7 +43,6 @@
     color: rgb(0, 243, 0);
 }
 
-/* Animation */
 @keyframes fadeIn {
     0% {
         opacity: 0;
@@ -51,34 +59,247 @@
     animation: fadeIn 1s forwards;
 }
 
-/* Apply staggered animation delay */
 .home-container h1 {
-    animation-delay: 0.5s; /* Delay for h1 */
+    animation-delay: 0.5s;
 }
 
 .home-container h2 {
-    animation-delay: 1s; /* Delay for h2 */
+    animation-delay: 1s;
 }
 
-/* Styling for highlighted text */
 .highlight {
-    color: #FF6347; /* A slightly more vibrant red */
+    color: #FF6347;
     font-weight: bold;
-    font-size: 1.2em; 
+    font-size: 1.2em;
 }
 
 
-#button12{
+
+#button12 {
     margin-left: 10px;
     padding: 10px;
     width: 200px;
     border: none;
     border-radius: 5px;
-   background-color: rgb(0, 196, 0);
-   color: white;
+    background-color: rgb(0, 196, 0);
+    color: white;
 }
-#button12:hover{
-    background-color: rgb(0, 204, 0); 
+
+#button12:hover {
+    background-color: rgb(0, 204, 0);
     box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
-    transform: translateY(-3px); 
+    transform: translateY(-3px);
 }
+
+/*About CSS*/
+
+
+.about-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+    max-width: 100%;
+    margin-top: 10px;
+   
+    
+    margin-left: auto; 
+    margin-right: auto; 
+    backdrop-filter: blur(50px);
+    
+  }
+  .about_conatiner1 {
+    border-radius: 10px;
+    box-shadow: 5px 5px 8px rgb(0, 0, 0);
+    backdrop-filter: blur(50px);
+    width: 700px;
+    padding: 40px 90px;
+    margin-top: 80px;
+    transition: all 0.3s ease-in-out;
+}
+
+.about_conatiner1:hover {
+    transform: translateY(-5px);
+    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.5);
+    background-color: rgba(28, 0, 72, 0.1);
+}
+
+  h1 {
+    font-size: 3rem;
+    color: rgb(4, 204, 4); /* Green color */
+
+    text-align: center; /* Ensure the h1 is centered */
+  }
+  
+  p {
+    font-size: 1.1rem;
+    color: #ffffff;
+    margin: 10px 0;
+    line-height: 1.6;
+    text-align: center; /* Center the paragraph text */
+  }
+  
+  ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    text-align: left;
+    max-width: 600px; /* Add max-width to ensure it's not too wide */
+    margin-left: auto; /* Center the list */
+    margin-right: auto; /* Center the list */
+  }
+  
+  ul li {
+    font-size: 1.1rem;
+    color: #ffffff;
+    margin: 5px 0;
+  }
+  
+  strong {
+    color: rgb(13, 186, 0); /* Highlighted green for emphasis */
+  }
+  
+
+
+  /* Services CSS*/
+  *{
+    max-height: 800px;
+}
+  .services-container {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #f8f9fa00;
+    margin-top: 80px;
+    padding: 100px 0 0 0;
+    height: 90vh;
+    
+  }
+  
+  .services-container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #ffffff;
+  }
+  
+  .services-container p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #ffffff;
+  }
+  
+  .services-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .service-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 280px;
+    transition: transform 0.3s ease;
+  }
+  
+  .service-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .service-icon {
+    font-size: 40px;
+    color: #007bff;
+    margin-bottom: 15px;
+  }
+  
+  .service-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .service-card p {
+    font-size: 1rem;
+    color: #666;
+  }
+  .services-wrapper{
+    margin-top: 90px;
+  }
+
+
+  /* Contact CSS*/
+
+  .contact-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+      padding: 20px;
+  }
+  
+  .contact-form {
+    background-color: #ffffff; /* Clean white background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .contact-form:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow on hover */
+    border: 1px solid #4CAF50; /* Green border on hover */
+  }
+  
+  .contact-form h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 30px;
+    color: #4CAF50; /* Green color for heading */
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+  
+  .contact-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333; /* Dark gray color for labels */
+  }
+  
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc; /* Light border for inputs */
+    border-radius: 5px;
+    font-size: 16px;
+    background: #f9f9f9; /* Light grey background for input fields */
+    box-sizing: border-box;
+  }
+  
+  .contact-form textarea {
+    resize: none;
+    height: 100px;
+  }
+  
+  .contact-form button {
+    width: 100%;
+    background-color: #4CAF50; /* Green color for the button */
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .contact-form button:hover {
+    background-color: #45a049; /* Slightly darker green on hover */
+  }
+  

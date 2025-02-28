@@ -94,4 +94,4 @@ export default router;
 
 // 201 for successful signup
 // 400 if the user already exists
-// 500 for server errors
+// 500 for server error

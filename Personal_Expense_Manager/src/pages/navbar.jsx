@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaUserCircle } from 'react-icons/fa'; // Import user icon
+
 import './CSS/navbar.css';
 
 function Navbar() {
@@ -23,6 +24,20 @@ function Navbar() {
     };
   }, []);
 
+  const scrollToSection = (sectionId) => {
+   
+      // If already on home, just scroll
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+     else {
+      // If on another page, navigate to home and scroll after load
+      navigate("/", { state: { scrollTo: sectionId } });
+    }
+  };
+  
+
   const handleLogout = () => {
     const confirmLogout = window.confirm("Are you sure you want to log out?");
     if (confirmLogout) {
@@ -44,10 +59,10 @@ function Navbar() {
           <h4>CashFlow</h4>
         </div>
         <div id="links">
-          <Link to="/home" className="nav-link">Home</Link>
-          <Link to="/about" className="nav-link">About</Link>
-          <Link to="/contact" className="nav-link">Contact</Link>
-          <Link to="/services " className="nav-link">Services</Link>
+        <a onClick={() => scrollToSection('home')} className="nav-link">Home</a>
+        <a onClick={() => scrollToSection('services')} className="nav-link">Services</a>
+        <a onClick={() => scrollToSection('about')} className="nav-link">About</a>
+        <a onClick={() => scrollToSection('contact')} className="nav-link">Contact</a>
 
           {isAuthenticated ? (
             <div className="user-info">
