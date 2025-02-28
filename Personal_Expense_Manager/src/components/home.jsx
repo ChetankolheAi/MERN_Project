@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { FaChartLine, FaShieldAlt, FaMoneyBillWave } from 'react-icons/fa';
 import './CSS/home.css'; // Use a single CSS file
-
+import CoinImage1 from './money1.png';
+import CoinImage2 from './money2.png';
+import CoinImage3 from './money3.png';
 function MainPage() {
   const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem('token'));
   const navigate = useNavigate();
@@ -53,6 +55,7 @@ function MainPage() {
       {/* Home Section */}
       <section id="home" className="home-container">
         <div className="home">
+          <div className="info">
           <h1 className="animate-text" style={{ color: strongColor }} onMouseOut={change1}>
             Track Your <span id='span' onMouseOver={change} style={{ color: spanColor }}>Finance</span>
           </h1>
@@ -66,6 +69,12 @@ function MainPage() {
           ) : (
             <h3 style={{ color: "red" }}>Please Login First To Add Expenses</h3>
           )}
+          </div>
+          <div className="image">
+          <img src={CoinImage1} alt="fdf" height={500} id='img1'/>
+          <img src={CoinImage2} alt="fdf" height={350} id='img2'/>
+          <img src={CoinImage3} alt="fdf" height={350} id='img3'/>
+          </div>
         </div>
       </section>
 
