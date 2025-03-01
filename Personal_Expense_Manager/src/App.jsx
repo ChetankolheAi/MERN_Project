@@ -17,12 +17,17 @@ function App() {
   };
 
   return (
+    
     <Router>
+     
       <div className="app-container">
-        <Navbar />
+
+      <Navbar />
 
         <div className="content-container">
+        
           <RefrshHandler setIsAuthenticated={setIsAuthenticated}/>
+
           <Routes>
 
             <Route path="/" element={<Navigate to="/login" />} />
@@ -31,8 +36,12 @@ function App() {
             <Route path="/signup" element={<Signup />} />  
             <Route path="/login" element={<Login />} />
             <Route path="/home" element={<PrivateRoute element={<Home />} />} />
+
+    
           </Routes>
-          <Footer />
+
+          <Footer/>
+
         </div>
      
         

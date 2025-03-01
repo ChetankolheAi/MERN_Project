@@ -54,7 +54,7 @@ function Navbar() {
 
   return (
     <div id="navbar">
-      <nav id="nav">
+   
         <div className="logo">
           <h4>CashFlow</h4>
         </div>
@@ -65,33 +65,22 @@ function Navbar() {
         <a onClick={() => scrollToSection('contact')} className="nav-link">Contact</a>
 
           {isAuthenticated ? (
-            <div className="user-info">
+            <div className="nav-links" id='ok'>
               <FaUserCircle className="user-icon" onClick={toggleDropdown}/>
               <h2 id="loggedinusername">{loggedInUser}</h2>
               <button onClick={handleLogout} id="button">Logout</button>
-
-                {/* Dropdown Menu */}
-                {isDropdownOpen && (
-                <div className="dropdown-menu">
-                  <h4>{loggedInUser}</h4>
-                  <p>Email: {emailuser}</p>
-                  <p>Phone: XXXXXXXXXXXXXXXX</p>
-                  <button onClick={handleLogout}>Logout</button>
-                </div>
-              )}
             </div>
+            
           ) : (
             <>
-            <div className="user-info" id='button'>
-              <Link to="/signup" className="nav-link">Signup</Link>
-            </div>
+            
             <div className="user-info" id='button'>
               <Link to="/login" className="nav-link">Login</Link>
            </div>
            </>
           )}
         </div>
-      </nav>
+      
     </div>
   );
 }

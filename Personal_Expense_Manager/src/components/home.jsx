@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { FaChartLine, FaShieldAlt, FaMoneyBillWave } from 'react-icons/fa';
-import './CSS/home.css'; // Use a single CSS file
-import CoinImage1 from './money1.png';
-import CoinImage2 from './money2.png';
-import CoinImage3 from './money3.png';
+import './CSS/home.css'; 
+
 function MainPage() {
   const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem('token'));
   const navigate = useNavigate();
   const location = useLocation();
 
   useEffect(() => {
+
     // Handle authentication status updates
     const updateAuthStatus = () => {
       setIsAuthenticated(!!localStorage.getItem('token'));
@@ -21,6 +20,8 @@ function MainPage() {
       window.removeEventListener('storage', updateAuthStatus);
     };
   }, []);
+
+
 
   useEffect(() => {
     // Handle scrolling when navigating from another page
@@ -52,31 +53,38 @@ function MainPage() {
 
   return (
     <div className="container">
+
+
       {/* Home Section */}
       <section id="home" className="home-container">
         <div className="home">
           <div className="info">
-          <h1 className="animate-text" style={{ color: strongColor }} onMouseOut={change1}>
-            Track Your <span id='span' onMouseOver={change} style={{ color: spanColor }}>Finance</span>
-          </h1>
-          <h2 className="animate-text">"Save money and money will save you."</h2>
+            <h1 className="animate-text" style={{ color: strongColor }} onMouseOut={change1}>
+              Track Your <span id='span' onMouseOver={change} style={{ color: spanColor }}>Finance</span>
+            </h1>
+            <h2 className="animate-text">"Save money and money will save you."</h2>
 
-          {isAuthenticated ? (
-            <div className="buttons11">
-              <button id='button12' type="button" onClick={() => navigate('/add-expense')}>Add Expense</button>
-              <button id='button12' type="button" onClick={() => navigate('/view-expense')}>View Expense</button>
-            </div>
-          ) : (
-            <h3 style={{ color: "red" }}>Please Login First To Add Expenses</h3>
-          )}
+            {isAuthenticated ? (
+              <div className="buttons11">
+                <button id='button12' type="button" onClick={() => navigate('/add-expense')}>Add Expense</button>
+                <button id='button12' type="button" onClick={() => navigate('/view-expense')}>View Expense</button>
+              </div>
+            ) : (
+              <h3 style={{ color: "red" }}>Please Login First To Add Expenses</h3>
+            )}
           </div>
-          <div className="image">
-          <img src={CoinImage1} alt="fdf" height={500} id='img1'/>
-          <img src={CoinImage2} alt="fdf" height={350} id='img2'/>
-          <img src={CoinImage3} alt="fdf" height={350} id='img3'/>
+         
+          <div className="card">
+          <h1>CashFlow</h1>
+          <p> "Managing your personal finances doesn’t have to be complicated. Our expense tracker is designed to help you track every dollar you spend, categorize your expenses. Start tracking today and take the first step toward smarter financial decisions!" </p>
           </div>
         </div>
       </section>
+
+
+
+
+
 
       {/* Services Section */}
       <section id="services" className="services-container">
@@ -106,9 +114,15 @@ function MainPage() {
         </div>
       </section>
 
+
+
+
+
+
       {/* About Section */}
       <section id="about" className="about-container">
         <div className="about_conatiner1">
+          
           <h1>About Us</h1>
           <p>
             Welcome to <strong>CashFlow</strong>, a personal finance manager designed to help you track and manage your expenses easily.
@@ -117,18 +131,14 @@ function MainPage() {
             Our goal is to make personal finance management simpler, allowing you to stay on top of your spending and savings.
             You can add daily expenses, track your spending habits, and plan your budget effectively.
           </p>
-          <p>
-            Whether you're looking to keep track of your groceries, entertainment, or any other expenses, <strong>CashFlow</strong> is here to help!
-          </p>
-          <h2>How it works</h2>
-          <ul>
-            <li>Add your daily expenses with just a few clicks.</li>
-            <li>View your expenses over time to understand your spending patterns.</li>
-            <li>Save money by managing your finances effectively!</li>
-          </ul>
+          
           <p>Thank you for choosing <strong>CashFlow</strong>. We hope it helps you take control of your financial future!</p>
         </div>
       </section>
+
+
+
+
 
       {/* Contact Section */}
       <section id="contact" className="contact-container">
@@ -146,6 +156,10 @@ function MainPage() {
           <button type="submit">Send Message</button>
         </form>
       </section>
+
+
+
+      
     </div>
   );
 }

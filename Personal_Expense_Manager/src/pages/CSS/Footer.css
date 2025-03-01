@@ -1,16 +1,14 @@
-/* Footer.css */
-
 .footer {
   background-color: #758174;
   color: white;
   width: 100%;
-  padding: 40px 0; /* Add padding for the footer content */
+  padding: 40px 0;
 }
 
 .footer-container {
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap; /* Allow sections to wrap in smaller screens */
+  flex-wrap: wrap;
   max-width: 1200px;
   margin: auto;
   padding: 0 20px;
@@ -32,6 +30,7 @@
 
 .footer-section p {
   line-height: 1.6;
+  text-align: left;
 }
 
 .footer-section .contact-info {
@@ -76,15 +75,14 @@
   margin: 0;
 }
 
-/* Responsive styles */
 @media (max-width: 768px) {
   .footer-container {
-    flex-direction: column; /* Stack the footer sections vertically on smaller screens */
+    flex-direction: column;
     align-items: center;
   }
 
   .footer-section {
-    text-align: center; /* Center the text on smaller screens */
+    text-align: center;
   }
 
   .footer-bottom {
