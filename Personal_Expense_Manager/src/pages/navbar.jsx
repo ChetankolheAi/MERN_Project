@@ -68,13 +68,13 @@ function Navbar() {
             <div className="nav-links" id='ok'>
               <FaUserCircle className="user-icon" onClick={toggleDropdown}/>
               <h2 id="loggedinusername">{loggedInUser}</h2>
-              <button onClick={handleLogout} id="button">Logout</button>
+              <button onClick={handleLogout} id="logoutBtn">Logout</button>
             </div>
             
           ) : (
             <>
             
-            <div className="user-info" id='button'>
+            <div className="nav-links" id='loginBtn'>
               <Link to="/login" className="nav-link">Login</Link>
            </div>
            </>
