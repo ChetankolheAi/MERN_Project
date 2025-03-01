@@ -9,7 +9,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 40px;
+  height: 60px; /* Increased height for better spacing */
   top: 0;
 }
 
@@ -120,6 +120,8 @@
   height: 20px;
   cursor: pointer;
   margin-right: 70px;
+  color: #fff;
+  
 }
 
 .hamburger .line {
@@ -132,15 +134,19 @@
   .nav-link {
     display: none;
   }
-
+  #links{
+    display: none;
+  }
   #ok {
     display: none;
     margin-left: 10px;
     margin-right: 50px;
   }
-  #loginBtn{
+
+  #loginBtn {
     display: none;
   }
+
   .hamburger {
     display: flex;
   }
@@ -182,8 +188,11 @@
     padding: 10px 10px;
   }
 
-  #links {
-    gap: 10px;
+   .nav-link {
+    display: none;
+  }
+  #links{
+    display: none;
   }
 
   .nav-link {
@@ -202,23 +211,8 @@
     width: 230px;
     padding: 5px;
   }
-  #loginBtn{
+
+  #loginBtn {
     display: none;
   }
-}
-
-#links1 {
-  display: none;
-  flex-direction: column;
-  border: 2px solid white;
-  margin-top: 150px;
-}
-
-#navlinks1 {
-  display: none;
-  color: white;
-}
-
-#circle {
-  display: none;
 }
