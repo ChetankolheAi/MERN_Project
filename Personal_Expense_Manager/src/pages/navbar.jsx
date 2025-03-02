@@ -11,12 +11,13 @@ function Navbar() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false); // For toggling mobile menu
   const navigate = useNavigate();
-
+  let dropdownMenu = document.getElementById('Drop-down');
   useEffect(() => {
     const updateAuthStatus = () => {
       setLoggedInUser(localStorage.getItem('loggedInUser') || '');
       setemailUser(localStorage.getItem('email') || '');
       setIsAuthenticated(!!localStorage.getItem('token'));
+      dropdownMenu.style.display = 'none';
     };
 
     window.addEventListener('storage', updateAuthStatus);
@@ -44,28 +45,32 @@ function Navbar() {
       navigate('/login');
     }
   };
-
+ 
   const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
-  };
-
-  const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+  const open =()=>{
+    dropdownMenu.style.display = 'flex';
+  }
+  const close =()=>{
+    dropdownMenu.style.display = 'none';
+  }
+
 
   return (
+    <>
     <div id="navbar">
       <div className="logo">
         <h4>CashFlow</h4>
       </div>
 
       {/* Hamburger Menu */}
-      <div className="hamburger" onClick={toggleMenu}>
-        {isMenuOpen ? <FaTimes /> : <FaBars />}
+      <div className="hamburger" onClick={toggleDropdown} >
+        {isMenuOpen ? <h4 onClick={close}><FaTimes /></h4>: <h4 onClick={open}><FaBars /></h4>}
       </div>
 
       {/* Links */}
-      <div id="links" className={isMenuOpen ? "open" : ""}>
+      <div id="links">
         <a onClick={() => scrollToSection('home')} className="nav-link">Home</a>
         <a onClick={() => scrollToSection('services')} className="nav-link">Services</a>
         <a onClick={() => scrollToSection('about')} className="nav-link">About</a>
@@ -87,9 +92,32 @@ function Navbar() {
           </div>
         )}
       </div>
-
+      
       
     </div>
+    <div id="Drop-down" >
+    <a onClick={() => scrollToSection('home')} className="Drop-navlinks">Home</a>
+    <a onClick={() => scrollToSection('services')} className="Drop-navlinks">Services</a>
+    <a onClick={() => scrollToSection('about')} className="Drop-navlinks">About</a>
+    <a onClick={() => scrollToSection('contact')} className="Drop-navlinks">Contact</a>
+
+    {isAuthenticated ? (
+      <div className="Drop-navlinks" id='Drop-downUserInfo'>
+        <FaUserCircle className="user-icon" onClick={toggleDropdown} />
+        <h2 id="loggedinusername">{loggedInUser}</h2>
+        
+          <div className="dropdown-menu1">
+            <button onClick={handleLogout} id="logoutBtn">Logout</button>
+          </div>
+        
+      </div>
+    ) : (
+      <div className="Drop-navlinks" id="drop-downloginBtn">
+        <Link to="/login" className="Drop-navlinks">Login</Link>
+      </div>
+    )}
+  </div>
+  </>
   );
 }
 
