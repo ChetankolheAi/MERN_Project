@@ -54,6 +54,9 @@ function AddExpense() {
             if (!response.ok) {
                 throw new Error('Failed to add expense');
             }
+            else{
+                alert("Expense added successfully!");
+            }
 
             setUser({
                 Description: "",
